@@ -15,15 +15,17 @@ def start(update,context) :
 def ost (update,context):
         cmd=update.message.text
         cmd=cmd.strip('\n')
+        print ("Command:"+str(cmd))
+        print ("Report:")
         #os.system(str(cmd))
-        subprocess.call([str(cmd)+" > output.txt"],shell=True)
+        subprocess.call([str(cmd)+" 2>&1 | tee output.txt"],shell=True)
         context.bot.send_message(chat_id=update.effective_chat.id, text="Executed")
         f=open("output.txt","r")
         x=f.readlines()
         #for i in x :
         i="".join(j for j in x)
         context.bot.send_message(chat_id=update.effective_chat.id, text=str(i))
-        
+        print("\n")
 from telegram.ext import MessageHandler, Filters
 echo_handler = MessageHandler(Filters.text, ost)
 dispatcher.add_handler(echo_handler)
