@@ -5,7 +5,7 @@ import youtube_dl
 import os
 import sys
 import subprocess
-updater=Updater(token='1025459505:AAEaUFQvMi_87PEprk161g6RKvaxhVBWC5E',use_context=True)
+updater=Updater(token='<Token>',use_context=True)
 dispatcher=updater.dispatcher
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
